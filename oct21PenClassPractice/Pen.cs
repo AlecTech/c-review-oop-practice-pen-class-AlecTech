@@ -18,51 +18,44 @@ namespace oct21PenClassPractice
 
         public string LastName { get; set; }
 
-        private int _age;
-        public int Age
+        private double _inklevel;
+
+        public double Ink
         {
             get
             {
-                return _age;
+                return _inklevel;
             }
             set
             {
                 if (value < 0)
                 {
-                    throw new Exception("Age must be greater than, or equal to, zero.");
+                    throw new Exception("Ink must be greater than, or equal to, zero.");
                 }
-                _age = value;
+                _inklevel = value;
             }
         }
 
-        public void Birthday()
+        public void Write()
         {
             // Any references to properties will reference the properties of the instance on which the method is called.
-            Age += 1;
+            Ink -= 1;
         }
 
         // Default Constructor - Takes no parameters, and sets default values for the properties.
         public Pen()
         {
-            FirstName = "John";
-            LastName = "Doe";
-            Age = 20;
-        }
-
-        // Partial Constructror - Takes parameters for some properties, and defaults others.
-        public Pen(string firstName, string lastName)
-        {
-            FirstName = firstName;
-            LastName = lastName;
-            Age = 20;
+            FirstName = "Bic";
+            LastName = "Red";
+            Ink = 10;
         }
 
         // Greedy Constructor - Takes paramaters for all properties.
-        public Pen(string firstName, string lastName, int age)
+        public Pen(string firstName, string lastName, int level)
         {
             FirstName = firstName;
             LastName = lastName;
-            Age = age;
+            Ink = level;
         }
 
 

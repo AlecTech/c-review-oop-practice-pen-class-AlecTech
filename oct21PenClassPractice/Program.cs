@@ -11,28 +11,28 @@ namespace oct21PenClassPractice
             // The new object has all of the properties that are specified in the class, but they are tied to that object.
             // One object's properties cannot see another object's properties without explicitly passing the values.
 
-            Console.Write("Please enter your first name: ");
+            Console.Write("Please enter brand name of your pen: ");
             pen.FirstName = Console.ReadLine().Trim();
 
-            Console.Write("Please enter your last name: ");
+            Console.Write("Please enter color of the pen to use: ");
             pen.LastName = Console.ReadLine().Trim();
 
-            Console.Write("Please enter your age: ");
+            Console.Write("Please enter amount of ink you need: ");
             try
             {
-                pen.Age = int.Parse(Console.ReadLine());
+                pen.Ink = int.Parse(Console.ReadLine());
             }
             catch (Exception e)
             {
-                Console.WriteLine($"Error: {e.Message} Setting to zero.");
-                pen.Age = 0;
+                Console.WriteLine($"Error: {e.Message} Setting ink level to zero.");
+                pen.Ink = 0;
             }
 
-            Console.WriteLine($"Hello, {pen.FirstName} {pen.LastName} {pen.Age}!");
+            Console.WriteLine($"This, {pen.FirstName} pen with  {pen.LastName} color, has {pen.Ink} ml of ink ");
 
-            pen.Birthday();
+            pen.Write();
 
-            Console.WriteLine($"You just had a birthday, you are now {pen.Age} years old.");
+            Console.WriteLine($"You used up some of the ink. {pen.Ink} ml of ink remaining!");
         }
     }
 }
