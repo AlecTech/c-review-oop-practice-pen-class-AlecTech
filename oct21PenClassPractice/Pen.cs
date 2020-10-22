@@ -18,12 +18,18 @@ namespace oct21PenClassPractice
 
         public string Color { get; set; }
 
+        // private bool _haslid;
+
+        
         public bool HasLid { get; set; }
 
+       
+
+        public double MaxInk { get; set; } 
 
         private double _inklevel;
 
-        public double MaxInk
+        public double InkGange
         {
             get
             {
@@ -33,8 +39,15 @@ namespace oct21PenClassPractice
             {
                if (value <= 0)
               {
-                    throw new Exception("Ink must be greater than, or equal to, zero.");
+                    _inklevel = 0;
+                    //throw new Exception("Ink must be greater than zero.");
                }
+              else if (value > MaxInk)
+               {
+                    _inklevel = MaxInk;
+              }
+              else
+
                 _inklevel = value;
             }
         }
@@ -45,20 +58,20 @@ namespace oct21PenClassPractice
             string stringInput = Console.ReadLine();
             int count = stringInput.Length;
 
-            MaxInk = MaxInk - count;
+            InkGange = InkGange - (count*0.05);
         }
        
         public void Write(int charactercount)
        {
             
-           MaxInk = MaxInk - charactercount;
+           InkGange = InkGange - charactercount;
         }
         // Default Constructor - Takes no parameters, and sets default values for the properties.
         public Pen()
         {
             Brand = "Bic";
             Color = "Red";
-            MaxInk = 10;
+            InkGange = 10;
         }
 
         // Greedy Constructor - Takes paramaters for all properties.
@@ -66,7 +79,7 @@ namespace oct21PenClassPractice
         {
             Brand = brandName;
             Color = colorName;
-            MaxInk = level;
+            InkGange = level;
         }
     }
 }
